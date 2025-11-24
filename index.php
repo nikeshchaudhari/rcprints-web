@@ -30,6 +30,10 @@ include("config.php");
             font-weight: 400;
 
         }
+        .who{
+            font-family: "Paytone One", "Bebas Neue", sans-serif;
+              font-weight: 400;
+        }
     </style>
 </head>
 
@@ -56,7 +60,7 @@ include("config.php");
 
                     <li>
                         <div>
-                            <?php if (isset($_SESSION['id'])): ?> <a href="register.php"
+                            <?php if (isset($_SESSION['id'])): ?> <a href="#"
                                     class="bg-red-800 text-white px-5 py-1 rounded hover:bg-red-900 cursor-pointer">Profile</a>
                                 <a href="logout.php"
                                     class="bg-red-800 text-white px-5 py-1 rounded hover:bg-red-900 cursor-pointer">Logout</a>
@@ -81,16 +85,33 @@ include("config.php");
     <section>
         <!--Hero  -->
         <div class="relative w-full  mx-auto overflow-hidden ">
-            <div id="slider" class="shadow-xl flex  transition-transform duration-500  ">
-                <img src="assets/1.jpg" alt="images1" class="w-full flex-shrink-0 object-cover h-[80vh]">
-                <img src="assets/2.jpg" alt="images2" class="w-full  flex-shrink-0 object-cover h-[80vh]">
-            </div>
 
+            <div id="slider" class="flex  transition-transform duration-500 relative">
+                <img src="assets/1.jpg" alt="images1" class="w-full flex-shrink-0 object-cover h-[90vh]">
+                <img src="assets/2.jpg" alt="images2" class="w-full  flex-shrink-0 object-cover h-[90vh]">
+            </div>
+            <img src="assets/ks_top_style.png" alt="" class="absolute bottom-0  w-full h-auto ">
             <!-- Prev Button -->
             <button id="prev" class="absolute left-4 top-1/2"><i
                     class="fa-solid fa-circle-arrow-left text-white text-[30px] cursor-pointer"></i></button>
             <button id="next" class="absolute right-4 top-1/2 text-white"><i
                     class="fa-solid fa-circle-arrow-right text-[30px] cursor-pointer"></i></button>
+        </div>
+
+
+        <!--  -->
+        <div class="bg-[#171717] w-full h-[50vh] flex justify-between">
+            <div class=" who w-[80vw] flex flex-col items-center">
+                <h1 class="text-white text-[25px]">WHO WE ARE
+                </h1>
+                <img src="assets/style.png" alt="" class="w-[208px] h-[24px]">
+            </div>
+            <div class="w-full flex justify-center ">
+                <iframe width="500" height="300" src="https://www.youtube.com/embed/O58x1M6RW08"
+                    title="Nepali Wedding Teasers | Cinematic Highlights | Anil &amp; Renisha 2018" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
         </div>
 
     </section>
