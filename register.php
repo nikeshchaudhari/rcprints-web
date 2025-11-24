@@ -18,7 +18,7 @@ include("config.php");
 <body>
     <section>
         <!-- Register -->
-        <div class="w-full h-[100vh]  flex items-center justify-center">
+        <div class="w-full mt-5  flex items-center justify-center">
 
             <div class="w-[30vw] border p-4 bg-white rounded ">
                 <form method="post" class="flex flex-col gap-3 ">
@@ -36,17 +36,34 @@ include("config.php");
                     <span class="text-end"><a href="login.php">Already Register | Login</a></span>
                 </form>
             </div>
-            <?php
+          
+        </div>
+        <div class="text-center ">
+              <?php
             if (isset($_POST["reg_btn"])) {
                 $name = $_POST["name"];
                 $email = $_POST["email"];
                 $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
                 $role = "user";
+
+                // check 
+                $check = "SELECT * FROM users WHERE email= '$email'";
+                $result = mysqli_query($conn, $check);
+
+                if(mysqli_num_rows($result)>0){
+                    echo "Email already register";
+                    exit;
+                }
+
+
                 $query = "INSERT INTO users(full_name,email,password,role)VALUES('$name','$email','$password','$role')";
                 $data = mysqli_query($conn, $query);
-                if($data){
+
+                if ($data) {
                     echo "User register Sucessfully..";
-                }else{
+                    header("Location: login.php");
+                    exit;
+                } else {
                     echo "Error";
                 }
 
