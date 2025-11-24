@@ -1,3 +1,12 @@
+<?php
+session_start();
+include("config.php");
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +18,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
 
     <title>RC Prints & Computer Parts || Home</title>
     <style>
         .logo-rc {
-            font-family: "Bebas Neue", sans-serif;
+            font-family: "Paytone One", "Bebas Neue", sans-serif;
+            ;
             font-weight: 400;
 
         }
@@ -33,7 +46,7 @@
 
         <div class="nav flex justify-between  w-full  items-center py-4
   ">
-            <div class="w-50vw text-[40px] ml-3 logo-rc">RC PRINTS</div>
+            <div class="w-50vw text-[40px] ml-3 logo-rc">RC PRINTS & COMPUTER</div>
             <div class="">
                 <ul class="flex gap-8 mr-5">
                     <li class="font-semibold"><a href="index.php">Home</a></li>
@@ -43,10 +56,17 @@
 
                     <li>
                         <div>
-                            <button
-                                class="bg-red-800 text-white px-5 py-1 rounded hover:bg-red-900 cursor-pointer">Register</button>
-                            <button
-                                class="bg-red-800 text-white px-5 py-1 rounded hover:bg-red-900 cursor-pointer">Login</button>
+                            <?php if (isset($_SESSION['id'])): ?> <a href="register.php"
+                                    class="bg-red-800 text-white px-5 py-1 rounded hover:bg-red-900 cursor-pointer">Profile</a>
+                                <a href="logout.php"
+                                    class="bg-red-800 text-white px-5 py-1 rounded hover:bg-red-900 cursor-pointer">Logout</a>
+
+                            <?php else: ?> <a href="register.php"
+                                    class="bg-red-800 text-white px-5 py-1 rounded hover:bg-red-900 cursor-pointer">Register</a>
+                                <a href="login.php"
+                                    class="bg-red-800 text-white px-5 py-1 rounded hover:bg-red-900 cursor-pointer"
+                                    name="login_btn">Login</a>
+                            <?php endif; ?>
                         </div>
                     </li>
 
@@ -90,6 +110,8 @@
             slider.style.transform = `translateX(-${index * 100}%)`;
         }
     </script>
+
+
 </body>
 
 </html>
