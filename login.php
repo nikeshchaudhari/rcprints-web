@@ -16,8 +16,11 @@ if(isset($_POST["login_btn"])){
         $_SESSION["username"] = $result["full_name"];
         $_SESSION["user_role"] = $result["role"];
 
-        header("Location:index.php");
-        exit;
+        if($result["role"] ==='admin'){
+            header('Location:admin.php');
+        }else{
+            header('Location:index.php');
+        }
     }else{
         echo  "Invalid user or password..";
     }
@@ -45,7 +48,7 @@ if(isset($_POST["login_btn"])){
             <label>Email</label>
             <input type="email" placeholder="enter your email" name="email" class="border p-1 ">
             <label>Password</label>
-            <input type="text" placeholder="enter password" name="password" class="border p-1 ">
+            <input type="password" placeholder="enter password" name="password" class="border p-1 ">
             <button type="submit" class="bg-red-900 p-1 rounded text-white text-[18px] hover:bg-red-800 cursor-pointer" name="login_btn">Login</button>
             <span class="text-end"><a href="register.php">Not Register For | Register</a></span>
         </form>
