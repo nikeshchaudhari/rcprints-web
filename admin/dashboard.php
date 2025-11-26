@@ -9,6 +9,12 @@ if (!isset($_SESSION["id"]) || $_SESSION['user_role'] !== 'admin') {
   exit;
 }
 
+$query = "SELECT COUNT(*) AS total_users FROM users WHERE role ='user'";
+$data = mysqli_query($conn, $query);
+$result=mysqli_fetch_assoc($data);
+
+$toataluser = $result["total_users"];
+
 ?>
 
 <!DOCTYPE html>
@@ -33,28 +39,52 @@ if (!isset($_SESSION["id"]) || $_SESSION['user_role'] !== 'admin') {
   </style>
 </head>
 
-<body class="flex min-height-100">
+<body>
   <!-- Admin Sidebar -->
-  <aside class="bg-[#271929] w-[20vw] h-[100vh] ">
-    <div class="bg-[#221624] text-center text-[20px] text-white mb-2 ">
-      <h2 class=" mx-2 p-2 dashboard">Admin Dashboard</h2>
-      <span>Hello, <?php echo $_SESSION["username"]; ?></span>
-    </div>
-    <ul class="  text-[18px] text-white ">
-      <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="dashboard.php" class="m-2">Home</a></li>
-      <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="#" class="m-2">Add Feature</a></li>
-      <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Add Products</a></li>
-      <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Orders</a></li>
+  <div class="flex min-height-screen">
 
-
+    <aside class="bg-[#271929] w-[20vw] h-[100vh] ">
+      <div class="bg-[#221624] text-center text-[20px] text-white mb-2 ">
+        <h2 class=" mx-2 p-2 dashboard">Admin Dashboard</h2>
+        <span>Hello, <?php echo $_SESSION["username"]; ?></span>
       </div>
-  </aside>
-  <!-- Dashboard View -->
- <main>
-   <div class="header">
-      <h1>Welcome, <?php echo $_SESSION["username"];?></h1>
-    </div>
- </main>
+      <ul class="  text-[18px] text-white ">
+        <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="dashboard.php" class="m-2">Home</a></li>
+        <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="#" class="m-2">Add Feature</a></li>
+        <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Add Products</a></li>
+        <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Orders</a></li>
+
+
+
+    </aside>
+    <!-- Dashboard View -->
+    <main class="flex-1 bg-gray-100  ">
+      <div class="header bg-[#CFCFCF] h-[100px] w-full flex items-center px-4">
+        <h1>Welcome, <?php echo $_SESSION["username"];?></h1>
+      </div>
+      <div class="flex justify-center">
+        <div class="cards flex justify-between w-[70vw] bg-red-500">
+        <div class="card">
+          <h3>Admin</h3>
+          <p><?php echo $toataluser;?></p>
+        </div>
+        <div class="card">
+          <h3>Users</h3>
+          <p><?php echo $toataluser;?></p>
+        </div>
+         <div class="card">
+          <h3>Total Products</h3>
+          <p><?php echo $toataluser;?></p>
+        </div>
+        <div class="card">
+          <h3>Totals Orders</h3>
+          <p><?php echo $toataluser;?></p>
+        </div>
+      </div>
+      </div>
+    </main>
+
+  </div>
 </body>
 
 </html>
