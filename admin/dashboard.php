@@ -35,24 +35,26 @@ if (!isset($_SESSION["id"]) || $_SESSION['user_role'] !== 'admin') {
 
 <body>
   <!-- Admin Sidebar -->
-  <aside class="bg-[#420101] w-[20vw] h-[100vh] ">
-    <div class="bg-[#240303] text-center text-[20px] text-white mb-2 ">
+  <aside class="bg-[#271929] w-[20vw] h-[100vh] ">
+    <div class="bg-[#221624] text-center text-[20px] text-white mb-2 ">
       <h2 class=" mx-2 p-2 dashboard">Admin Dashboard</h2>
       <span>Hello, <?php echo $_SESSION["username"]; ?></span>
     </div>
-    <ul class=" mx-2 text-[18px] text-white p-2">
-      <li> <a href="dashboard.php">Home</a></li>
-      <li> <a href="#">Add Feature</a></li>
-      <li><a href="#">Add Products</a></li>
-      <li><a href="#">Orders</a></li>
+    <ul class="  text-[18px] text-white ">
+      <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="dashboard.php" class="m-2">Home</a></li>
+      <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="#" class="m-2">Add Feature</a></li>
+      <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Add Products</a></li>
+      <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Orders</a></li>
 
 
       </div>
   </aside>
-<!-- Dashboard View -->
- <section>
-  
- </section>
+  <!-- Dashboard View -->
+  <section>
+    <div>
+
+    </div>
+  </section>
 </body>
 
 </html>
