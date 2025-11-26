@@ -17,7 +17,7 @@ if(isset($_POST["login_btn"])){
         $_SESSION["user_role"] = $result["role"];
 
         if($result["role"] ==='admin'){
-            header('Location:admin/admin.php');
+            header('Location:admin/dashboard.php');
         }else{
             header('Location:index.php');
         }
