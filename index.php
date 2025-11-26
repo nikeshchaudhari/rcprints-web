@@ -2,10 +2,10 @@
 session_start();
 include("config.php");
 
-if(!isset($_SESSION["id"])|| $_SESSION["user_role"]!=='user'){
-    header('Location:login.php');
-    exit;
-}
+// if(!isset($_SESSION["id"])|| $_SESSION["user_role"]!=='user'){
+//     header('Location:login.php');
+//     exit;
+// }
 
 
 ?>
