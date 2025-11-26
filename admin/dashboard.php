@@ -33,7 +33,7 @@ if (!isset($_SESSION["id"]) || $_SESSION['user_role'] !== 'admin') {
   </style>
 </head>
 
-<body>
+<body class="flex min-height-100">
   <!-- Admin Sidebar -->
   <aside class="bg-[#271929] w-[20vw] h-[100vh] ">
     <div class="bg-[#221624] text-center text-[20px] text-white mb-2 ">
@@ -50,11 +50,11 @@ if (!isset($_SESSION["id"]) || $_SESSION['user_role'] !== 'admin') {
       </div>
   </aside>
   <!-- Dashboard View -->
-  <section>
-    <div>
-
+ <main>
+   <div class="header">
+      <h1>Welcome, <?php echo $_SESSION["username"];?></h1>
     </div>
-  </section>
+ </main>
 </body>
 
 </html>
