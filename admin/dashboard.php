@@ -62,21 +62,21 @@ $toataluser = $result["total_users"];
       <div class="header bg-[#CFCFCF] h-[100px] w-full flex items-center px-4">
         <h1>Welcome, <?php echo $_SESSION["username"];?></h1>
       </div>
-      <div class="flex justify-center">
-        <div class="cards flex justify-between w-[70vw] bg-red-500">
-        <div class="card">
-          <h3>Admin</h3>
+      <div class="flex justify-center mt-5">
+        <div class="cards flex justify-between w-[70vw] ">
+        <div class="card flex flex-col justify-center w-[200px] bg-[#BDBDBD] rounded text-center h-[100px] ">
+          <h3>Admin</h3>    
           <p><?php echo $toataluser;?></p>
         </div>
-        <div class="card">
+        <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
           <h3>Users</h3>
           <p><?php echo $toataluser;?></p>
         </div>
-         <div class="card">
+         <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
           <h3>Total Products</h3>
           <p><?php echo $toataluser;?></p>
         </div>
-        <div class="card">
+        <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
           <h3>Totals Orders</h3>
           <p><?php echo $toataluser;?></p>
         </div>
