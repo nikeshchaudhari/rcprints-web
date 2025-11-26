@@ -9,12 +9,20 @@ if (!isset($_SESSION["id"]) || $_SESSION['user_role'] !== 'admin') {
   exit;
 }
 
-$query = "SELECT COUNT(*) AS total_users FROM users WHERE role ='user'";
-$data = mysqli_query($conn, $query);
-$result=mysqli_fetch_assoc($data);
+// user cout Query
+$query_user = "SELECT COUNT(*) AS total_users FROM users WHERE role ='user'";
 
-$toataluser = $result["total_users"];
+$data_user = mysqli_query($conn, $query_user);
+$result_user = mysqli_fetch_assoc($data_user);
 
+$toataluser = $result_user["total_users"];
+// admin query
+
+$query_admin= "SELECT COUNT(*) AS total_admin FROM users WHERE role='admin'";
+$data_admin= mysqli_query($conn, $query_admin);
+$result_admin = mysqli_fetch_assoc($data_admin);
+
+$total_admin = $result_admin["total_admin"];
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +61,7 @@ $toataluser = $result["total_users"];
         <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="#" class="m-2">Add Feature</a></li>
         <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Add Products</a></li>
         <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Orders</a></li>
+        <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="../logout.php" class="m-2">Logout</a></li>
 
 
 
@@ -60,27 +69,27 @@ $toataluser = $result["total_users"];
     <!-- Dashboard View -->
     <main class="flex-1 bg-gray-100  ">
       <div class="header bg-[#CFCFCF] h-[100px] w-full flex items-center px-4">
-        <h1>Welcome, <?php echo $_SESSION["username"];?></h1>
+        <h1>Welcome, <?php echo $_SESSION["username"]; ?></h1>
       </div>
       <div class="flex justify-center mt-5">
         <div class="cards flex justify-between w-[70vw] ">
-        <div class="card flex flex-col justify-center w-[200px] bg-[#BDBDBD] rounded text-center h-[100px] ">
-          <h3>Admin</h3>    
-          <p><?php echo $toataluser;?></p>
+          <div class="card flex flex-col justify-center w-[200px] bg-[#BDBDBD] rounded text-center h-[100px] ">
+            <h3>Admin</h3>
+            <p><?php echo $total_admin; ?></p>
+          </div>
+          <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
+            <h3>Users</h3>
+            <p><?php echo $toataluser; ?></p>
+          </div>
+          <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
+            <h3>Total Products</h3>
+            <p><?php echo $toataluser; ?></p>
+          </div>
+          <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
+            <h3>Totals Orders</h3>
+            <p><?php echo $toataluser; ?></p>
+          </div>
         </div>
-        <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
-          <h3>Users</h3>
-          <p><?php echo $toataluser;?></p>
-        </div>
-         <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
-          <h3>Total Products</h3>
-          <p><?php echo $toataluser;?></p>
-        </div>
-        <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
-          <h3>Totals Orders</h3>
-          <p><?php echo $toataluser;?></p>
-        </div>
-      </div>
       </div>
     </main>
 
