@@ -59,7 +59,7 @@ $total_admin = $result_admin["total_admin"];
       <ul class="  text-[18px] text-white ">
         <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="dashboard.php" class="m-2">Home</a></li>
         <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="#" class="m-2">Add Feature</a></li>
-        <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Add Products</a></li>
+        <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="add_product.php" class="m-2">Add Products</a></li>
         <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Orders</a></li>
         <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="../logout.php" class="m-2">Logout</a></li>
 
