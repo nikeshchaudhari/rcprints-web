@@ -18,8 +18,8 @@ $result_user = mysqli_fetch_assoc($data_user);
 $toataluser = $result_user["total_users"];
 // admin query
 
-$query_admin= "SELECT COUNT(*) AS total_admin FROM users WHERE role='admin'";
-$data_admin= mysqli_query($conn, $query_admin);
+$query_admin = "SELECT COUNT(*) AS total_admin FROM users WHERE role='admin'";
+$data_admin = mysqli_query($conn, $query_admin);
 $result_admin = mysqli_fetch_assoc($data_admin);
 
 $total_admin = $result_admin["total_admin"];
@@ -39,6 +39,9 @@ $total_admin = $result_admin["total_admin"];
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css"
+    integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Dashboard || Admin</title>
   <style>
     .dashboard {
@@ -66,11 +69,30 @@ $total_admin = $result_admin["total_admin"];
 
 
     </aside>
+
     <!-- Dashboard View -->
     <main class="flex-1 bg-gray-100  ">
-      <div class="header bg-[#CFCFCF] h-[50px] md:h-[100px] w-full flex items-center justify-center md:justify-start ">
-        <h1 class="font-semibold ">Welcome, <?php echo $_SESSION["username"]; ?></h1>
+      <div class="header bg-[#CFCFCF] h-[50px] md:h-[100px] w-full flex justify-between items-center ">
+        <div class="sm:flex sm:w-full sm:justify-center md:block md:w-auto md:justify-start">
+          <h1 class="font-semibold mx-2">Welcome, <?php echo $_SESSION["username"]; ?></h1>
+        </div>
+        <!-- Hamburger icon -->
+        <div class="mb-icon md:hidden text-[20px] cursor-pointer ">
+          <i class=" fa-solid fa-bars mx-2"></i>
+        </div>
       </div>
+
+      <!-- Mobile view Navbar -->
+       <nav id="mobile-menu" class="md:hidden">
+        <ul>
+          <li><a href="dashboard.php">Dashboard</a></li>
+          <li><a href="">Add Feature</a></li>
+          <li><a href="add_product.php">Add Products</a></li>
+          <li><a href="">Orders</a></li>
+          <li><a href="../logout.php">Logout</a></li>
+        </ul>
+       </nav>
+
       <div class="flex justify-center mt-5  overflow-hidden">
         <div class="cards grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
           <div class="card flex flex-col justify-center w-[200px] bg-[#BDBDBD] rounded text-center h-[100px] ">
