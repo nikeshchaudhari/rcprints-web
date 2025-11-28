@@ -77,13 +77,13 @@ $total_admin = $result_admin["total_admin"];
           <h1 class="font-semibold mx-2">Welcome, <?php echo $_SESSION["username"]; ?></h1>
         </div>
         <!-- Hamburger icon -->
-        <div class="mb-icon md:hidden text-[20px] cursor-pointer ">
+        <div class="mb-icon md:hidden text-[20px] cursor-pointer hamburger ">
           <i class=" fa-solid fa-bars mx-2"></i>
         </div>
       </div>
 
       <!-- Mobile view Navbar -->
-      <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-30"></div>
+      <div id="overlay" class="fixed inset-0 bg-black/50 bg-opacity-50 hidden  z-30"></div>
 
       <nav id="mobile-menu" class="fixed top-0 right-[-100%] h-full w-64 bg-white z-40 transition-all duration-300">
         <div class="p-6 flex flex-col gap-4">
@@ -118,6 +118,7 @@ $total_admin = $result_admin["total_admin"];
     </main>
 
   </div>
+  <script src="../js/script.js"></script>
 </body>
 
 </html>
