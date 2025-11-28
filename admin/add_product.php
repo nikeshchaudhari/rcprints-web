@@ -29,22 +29,21 @@ include("../config.php");
 
 <body>
     <!-- Admin Sidebar -->
-    <div class="flex min-height-screen">
+    <div class="flex min-height-screen ">
 
-        <aside class="bg-[#271929] w-[20vw] h-[100vh] ">
-            <div class="bg-[#221624] text-center text-[20px] text-white mb-2 ">
-                <h2 class=" mx-2 p-2 dashboard">Admin Dashboard</h2>
+        <aside class="hidden sm:block bg-[#271929] w-[20vw] h-[100vh]">
+            <div class="bg-[#221624] text-center text-[20px] text-white mb-2">
+                <h2 class="mx-2 p-2 dashboard">Admin Dashboard</h2>
                 <span>Hello, <?php echo $_SESSION["username"]; ?></span>
             </div>
-            <ul class="  text-[18px] text-white ">
-                <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="dashboard.php" class="m-2">Home</a></li>
-                <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="#" class="m-2">Add Feature</a></li>
-                <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="add_product.php" class="m-2">Add Products</a></li>
-                <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Orders</a></li>
-                <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="../logout.php" class="m-2">Logout</a></li>
 
-
-
+            <ul class="text-[18px] text-white">
+                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="dashboard.php" class="m-2">Home</a></li>
+                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="#">Add Feature</a></li>
+                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="add_product.php" class="m-2">Add Products</a></li>
+                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="#">Orders</a></li>
+                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="../logout.php" class="m-2">Logout</a></li>
+            </ul>
         </aside>
         <!-- Dashboard View -->
 
