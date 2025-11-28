@@ -51,9 +51,9 @@ $total_admin = $result_admin["total_admin"];
   <!-- Admin Sidebar -->
   <div class="flex min-height-screen">
 
-    <aside class="bg-[#271929] w-[20vw] h-[100vh] ">
+    <aside class="bg-[#271929] w-[20vw] h-[100vh] hidden md:block ">
       <div class="bg-[#221624] text-center text-[20px] text-white mb-2 ">
-        <h2 class=" mx-2 p-2 dashboard">Admin Dashboard</h2>
+        <h2 class=" mx-2 p-2 dashboard ">Admin Dashboard</h2>
         <span>Hello, <?php echo $_SESSION["username"]; ?></span>
       </div>
       <ul class="  text-[18px] text-white ">
@@ -68,24 +68,24 @@ $total_admin = $result_admin["total_admin"];
     </aside>
     <!-- Dashboard View -->
     <main class="flex-1 bg-gray-100  ">
-      <div class="header bg-[#CFCFCF] h-[100px] w-full flex items-center px-4">
-        <h1>Welcome, <?php echo $_SESSION["username"]; ?></h1>
+      <div class="header bg-[#CFCFCF] h-[50px] md:h-[100px] w-full flex items-center justify-center md:justify-start ">
+        <h1 class="font-semibold ">Welcome, <?php echo $_SESSION["username"]; ?></h1>
       </div>
-      <div class="flex justify-center mt-5">
-        <div class="cards flex justify-between w-[70vw] ">
+      <div class="flex justify-center mt-5  overflow-hidden">
+        <div class="cards grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
           <div class="card flex flex-col justify-center w-[200px] bg-[#BDBDBD] rounded text-center h-[100px] ">
             <h3>Admin</h3>
             <p><?php echo $total_admin; ?></p>
           </div>
-          <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
+          <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center h-[100px] ">
             <h3>Users</h3>
             <p><?php echo $toataluser; ?></p>
           </div>
-          <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
+          <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center h-[100px]">
             <h3>Total Products</h3>
             <p><?php echo $toataluser; ?></p>
           </div>
-          <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center">
+          <div class="card flex flex-col justify-center  w-[200px] bg-[#BDBDBD] rounded text-center h-[100px]">
             <h3>Totals Orders</h3>
             <p><?php echo $toataluser; ?></p>
           </div>
