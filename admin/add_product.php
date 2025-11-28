@@ -49,9 +49,9 @@ include("../config.php");
         <!-- Dashboard View -->
 
         <main class="flex-1 bg-gray-100 ">
-            <div class="flex ">
-                <h1 class="block">Add New Product</h1>
-                <form method="POST" class="flex flex-col">
+            <div class="flex flex-col ">
+                <h1 class="">Add New Product</h1>
+                <form method="POST" class="flex flex-col block">
                     <label for="">Product Name</label>
                     <input type="text" placeholder="Enter product name">
                     <label for="">Price</label>
