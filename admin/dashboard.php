@@ -71,7 +71,7 @@ $total_admin = $result_admin["total_admin"];
     </aside>
 
     <!-- Dashboard View -->
-    <main class="flex-1 bg-gray-100  ">
+    <main class="flex-1 bg-gray-100 h-[100vh] ">
       <div class="header bg-[#CFCFCF] h-[50px] md:h-[100px] w-full flex justify-between items-center ">
         <div class="sm:flex sm:w-full sm:justify-center md:block md:w-auto md:justify-start">
           <h1 class="font-semibold mx-2">Welcome, <?php echo $_SESSION["username"]; ?></h1>
@@ -83,15 +83,17 @@ $total_admin = $result_admin["total_admin"];
       </div>
 
       <!-- Mobile view Navbar -->
-       <nav id="mobile-menu" class="md:hidden">
-        <ul>
-          <li><a href="dashboard.php">Dashboard</a></li>
-          <li><a href="">Add Feature</a></li>
-          <li><a href="add_product.php">Add Products</a></li>
-          <li><a href="">Orders</a></li>
-          <li><a href="../logout.php">Logout</a></li>
-        </ul>
-       </nav>
+      <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-30"></div>
+
+      <nav id="mobile-menu" class="fixed top-0 right-[-100%] h-full w-64 bg-white z-40 transition-all duration-300">
+        <div class="p-6 flex flex-col gap-4">
+          <a href="dashboard.php" class="text-black">Dashboard</a>
+          <a href="#" class="text-black">Add Feature</a>
+          <a href="add_product.php" class="text-black">Add Products</a>
+          <a href="#" class="text-black">Orders</a>
+          <a href="../logout.php" class="text-black">Logout</a>
+        </div>
+      </nav>
 
       <div class="flex justify-center mt-5  overflow-hidden">
         <div class="cards grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
