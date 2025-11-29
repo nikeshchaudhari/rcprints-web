@@ -28,9 +28,8 @@ include("../config.php");
 </head>
 
 <body>
-    <div class="flex min-height-screen">
-
-        <aside class="bg-[#271929] w-[20vw] h-[100vh] hidden md:block ">
+    <div class="flex min-h-screen bg-red-600">
+        <aside class="bg-[#271929] w-[20vw] min-h-screen hidden md:block ">
             <div class="bg-[#221624] text-center text-[20px] text-white mb-2 ">
                 <h2 class=" mx-2 p-2 dashboard ">Admin Dashboard</h2>
                 <span>Hello, <?php echo $_SESSION["username"]; ?></span>
@@ -42,15 +41,15 @@ include("../config.php");
                 <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Orders</a></li>
                 <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="../logout.php" class="m-2">Logout</a></li>
 
-
+            </ul>
 
         </aside>
 
         <!-- Dashboard View -->
-        <main class="flex-1 bg-gray-100 h-[100vh] ">
-            <div class="header bg-[#CFCFCF] h-[50px] md:h-[100px] w-full flex justify-between items-center ">
-                <div class="sm:flex sm:w-full sm:justify-center md:block md:w-auto md:justify-start">
-                    <h1 class="font-semibold mx-2">Add Products</h1>
+        <main class="flex-1 bg-gray-100  h-auto">
+            <div class="header bg-[#CFCFCF] h-[50px] md:h-[50px] w-full flex justify-between items-center ">
+                <div class="flex w-full justify-start  md:justify-center">
+                    <h1 class="font-semibold ">Add Products</h1>
                 </div>
                 <!-- Hamburger icon -->
                 <div class="mb-icon md:hidden text-[20px] cursor-pointer hamburger ">
@@ -75,12 +74,12 @@ include("../config.php");
                     <a href="../logout.php" class="active:bg-[#180B1A]/50 w-full  px-3 py-2">Logout</a>
                 </div>
             </nav>
-
-            <div class="flex justify-center ">
-               
-                <form method="POST" class="flex flex-col block w-[70vw] mt-5  ">
+            <!-- form -->
+            <div class="flex justify-center">
+                <form method="POST" class="flex flex-col block w-[70vw] mt-5   ">
                     <label for="" class="text-[20px] font-semibold">Product Name</label>
-                    <input type="text" placeholder="Enter product name" name="product_name" class="border px-2 py-1 m-2">
+                    <input type="text" placeholder="Enter product name" name="product_name"
+                        class="border px-2 py-1 m-2">
                     <label for="" class="text-[20px] font-semibold">Price</label>
                     <input type="text" placeholder="Enter price" name="product_price" class="border px-2 py-1 m-2">
                     <label for="" class="text-[20px] font-semibold">Category</label>
@@ -91,19 +90,26 @@ include("../config.php");
                         <option value="Accessories">Accessories</option>
                         <option value="Electronic">Electronic</option>
                     </select>
-                    <label for=""  class="text-[20px] font-semibold"    >Description</label>
-                    <textarea placeholder="Enter product description" name="description" class="border px-2 py-1 m-2"></textarea>
+                    <label for="" class="text-[20px] font-semibold">Description</label>
+                    <textarea placeholder="Enter product description" name="description"
+                        class="border px-2 py-1 m-2"></textarea>
                     <!-- <label for="">Product Image</label> -->
-                    <input type="file" id="fileInput" accept="image/*" name="img_file" class="border px-2 py-1 m-2    md:w-56 rounded cursor-pointer">
+                    <input type="file" id="fileInput" accept="image/*" name="img_file"
+                        class="border px-2 py-1 m-2    md:w-56 rounded cursor-pointer">
 
-                    <button type="submit" class="text-[20px] font-semibold bg-red-900 cursor-pointer  rounded   text-white hover:bg-red-800 ">Add Product</button>
+                    <button type="submit"
+                        class="text-[20px] font-semibold bg-red-900 cursor-pointer  rounded   text-white hover:bg-red-800 ">Add
+                        Product</button>
 
                 </form>
             </div>
-
+            <h1>Next</h1>
         </main>
-
     </div>
+
+
+
+
     <script src="../js/script.js"></script>
 
 
