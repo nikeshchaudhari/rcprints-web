@@ -83,7 +83,7 @@ include("../config.php");
                     <label for="" class="text-[20px] font-semibold">Price</label>
                     <input type="text" placeholder="Enter price" name="product_price" class="border px-2 py-1 m-2">
                     <label for="" class="text-[20px] font-semibold">Category</label>
-                    <select name="" id="" class="border px-2 py-1 m-2">
+                    <select name="category" id="" class="border px-2 py-1 m-2">
                         <option value="">--Select Category--</option>
                         <option value="Wedding Photoshot">Wedding Photoshot</option>
                         <option value="Videography">Videography</option>
@@ -94,16 +94,34 @@ include("../config.php");
                     <textarea placeholder="Enter product description" name="description"
                         class="border px-2 py-1 m-2"></textarea>
                     <!-- <label for="">Product Image</label> -->
-                    <input type="file" id="fileInput" accept="image/*" name="img_file"
+                    <input type="file" id="fileInput" accept="image/*" name="img"
                         class="border px-2 py-1 m-2    md:w-56 rounded cursor-pointer">
 
-                    <button type="submit"
+                    <button type="submit" name="add_data"
                         class="text-[20px] font-semibold bg-red-900 cursor-pointer  rounded   text-white hover:bg-red-800 ">Add
                         Product</button>
 
                 </form>
+
+                <?php
+                if (isset($_POST["add_data"])) {
+
+                    $productName = $POST["product_name"];
+                    $productPrice = $POST["product_price"];
+                    $category = $_POST['category'];
+                    $description = $POST['description'];
+                    // image uploads
+                    if(isset($_FILES['img'])) {
+
+
+                    }
+
+                }
+
+
+                ?>
             </div>
-            <h1>Next</h1>
+            <!-- View Add Products details -->
         </main>
     </div>
 
