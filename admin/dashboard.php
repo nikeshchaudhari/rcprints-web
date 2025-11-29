@@ -188,8 +188,11 @@ $total_admin = $result_admin["total_admin"];
             <h3>Totals Orders</h3>
             <p><?php echo $toataluser; ?></p>
           </div>
+          
         </div>
+        
       </div>
+     
     </main>
 
   </div>
