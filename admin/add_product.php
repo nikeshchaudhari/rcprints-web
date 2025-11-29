@@ -28,56 +28,86 @@ include("../config.php");
 </head>
 
 <body>
-    <!-- Admin Sidebar -->
-    <div class="flex min-height-screen ">
+    <div class="flex min-height-screen">
 
-        <aside class="hidden sm:block bg-[#271929] w-[20vw] h-[100vh]">
-            <div class="bg-[#221624] text-center text-[20px] text-white mb-2">
-                <h2 class="mx-2 p-2 dashboard">Admin Dashboard</h2>
+        <aside class="bg-[#271929] w-[20vw] h-[100vh] hidden md:block ">
+            <div class="bg-[#221624] text-center text-[20px] text-white mb-2 ">
+                <h2 class=" mx-2 p-2 dashboard ">Admin Dashboard</h2>
                 <span>Hello, <?php echo $_SESSION["username"]; ?></span>
             </div>
+            <ul class="  text-[18px] text-white ">
+                <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="dashboard.php" class="m-2">Home</a></li>
+                <li class="p-2 hover:bg-[#180B1A] w-full"> <a href="#" class="m-2">Add Feature</a></li>
+                <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="add_product.php" class="m-2">Add Products</a></li>
+                <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="#" class="m-2">Orders</a></li>
+                <li class=" p-2 hover:bg-[#180B1A] w-full"><a href="../logout.php" class="m-2">Logout</a></li>
 
-            <ul class="text-[18px] text-white">
-                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="dashboard.php" class="m-2">Home</a></li>
-                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="#">Add Feature</a></li>
-                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="add_product.php" class="m-2">Add Products</a></li>
-                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="#">Orders</a></li>
-                <li class="p-2 hover:bg-[#180B1A] w-full"><a href="../logout.php" class="m-2">Logout</a></li>
-            </ul>
+
+
         </aside>
-        <!-- Dashboard View -->
 
-        <main class="flex-1 bg-gray-100 ">
-            <div class="flex flex-col ">
-                <h1 class="">Add New Product</h1>
-                <form method="POST" class="flex flex-col block">
-                    <label for="">Product Name</label>
-                    <input type="text" placeholder="Enter product name">
-                    <label for="">Price</label>
-                    <input type="text" placeholder="Enter price">
-                    <label for="">Category</label>
-                    <select name="" id="">
+        <!-- Dashboard View -->
+        <main class="flex-1 bg-gray-100 h-[100vh] ">
+            <div class="header bg-[#CFCFCF] h-[50px] md:h-[100px] w-full flex justify-between items-center ">
+                <div class="sm:flex sm:w-full sm:justify-center md:block md:w-auto md:justify-start">
+                    <h1 class="font-semibold mx-2">Add Products</h1>
+                </div>
+                <!-- Hamburger icon -->
+                <div class="mb-icon md:hidden text-[20px] cursor-pointer hamburger ">
+                    <i class=" fa-solid fa-bars mx-2"></i>
+                </div>
+            </div>
+
+            <!-- Mobile view Navbar -->
+            <div id="overlay" class="fixed inset-0 bg-black/50 bg-opacity-50 hidden  z-30"></div>
+
+            <nav id="mobile-menu"
+                class="fixed top-0 right-[-100%] h-full w-64 bg-white z-40 transition-all duration-300 ">
+                <div class="flex justify-end w-full close-btn  ">
+
+                    <i class="fa-solid fa-xmark text-[25px] m-2"></i>
+                </div>
+                <div class=" flex flex-col gap-4 ">
+                    <a href="dashboard.php" class="  active:bg-[#180B1A]/50 w-full  px-3 py-2  ">Dashboard</a>
+                    <a href="#" class="active:bg-[#180B1A]/50 w-full  px-3 py-2">Add Feature</a>
+                    <a href="add_product.php" class="active:bg-[#180B1A]/50 w-full  px-3 py-2">Add Products</a>
+                    <a href="#" class="active:bg-[#180B1A]/50 w-full  px-3 py-2">Orders</a>
+                    <a href="../logout.php" class="active:bg-[#180B1A]/50 w-full  px-3 py-2">Logout</a>
+                </div>
+            </nav>
+
+            <div class="flex justify-center ">
+               
+                <form method="POST" class="flex flex-col block w-[70vw] mt-5  ">
+                    <label for="" class="text-[20px] font-semibold">Product Name</label>
+                    <input type="text" placeholder="Enter product name" name="product_name" class="border px-2 py-1 m-2">
+                    <label for="" class="text-[20px] font-semibold">Price</label>
+                    <input type="text" placeholder="Enter price" name="product_price" class="border px-2 py-1 m-2">
+                    <label for="" class="text-[20px] font-semibold">Category</label>
+                    <select name="" id="" class="border px-2 py-1 m-2">
                         <option value="">--Select Category--</option>
                         <option value="Wedding Photoshot">Wedding Photoshot</option>
                         <option value="Videography">Videography</option>
                         <option value="Accessories">Accessories</option>
                         <option value="Electronic">Electronic</option>
                     </select>
-                    <label for="">Description</label>
-                    <textarea placeholder="Enter product description"></textarea>
-                    <label for="">Product Image</label>
-                    <input type="file" id="fileInput" accept="image/*">
+                    <label for=""  class="text-[20px] font-semibold"    >Description</label>
+                    <textarea placeholder="Enter product description" name="description" class="border px-2 py-1 m-2"></textarea>
+                    <!-- <label for="">Product Image</label> -->
+                    <input type="file" id="fileInput" accept="image/*" name="img_file" class="border px-2 py-1 m-2    md:w-56 rounded cursor-pointer">
 
-                    <button type="submit">Add Product</button>
+                    <button type="submit" class="text-[20px] font-semibold bg-red-900 cursor-pointer  rounded   text-white hover:bg-red-800 ">Add Product</button>
 
                 </form>
             </div>
 
-
-
         </main>
 
     </div>
+    <script src="../js/script.js"></script>
+
+
+
 </body>
 
 </html>
