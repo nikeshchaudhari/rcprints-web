@@ -85,17 +85,17 @@ $total_admin = $result_admin["total_admin"];
       <!-- Mobile view Navbar -->
       <div id="overlay" class="fixed inset-0 bg-black/50 bg-opacity-50 hidden  z-30"></div>
 
-      <nav id="mobile-menu" class="fixed top-0 right-[-100%] h-full w-64 bg-white z-40 transition-all duration-300">
+      <nav id="mobile-menu" class="fixed top-0 right-[-100%] h-full w-64 bg-white z-40 transition-all duration-300 ">
        <div class="flex justify-end w-full close-btn  ">
 
          <i class="fa-solid fa-xmark text-[25px] m-2"></i>
        </div>
-        <div class="p-6 flex flex-col gap-4">
-          <a href="dashboard.php" class="text-black">Dashboard</a>
-          <a href="#" class="text-black">Add Feature</a>
-          <a href="add_product.php" class="text-black">Add Products</a>
-          <a href="#" class="text-black">Orders</a>
-          <a href="../logout.php" class="text-black">Logout</a>
+        <div class=" flex flex-col gap-4 ">
+          <a href="dashboard.php" class="  active:bg-[#180B1A]/50 w-full  px-3 py-2  ">Dashboard</a>
+          <a href="#" class="active:bg-[#180B1A]/50 w-full  px-3 py-2">Add Feature</a>
+          <a href="add_product.php" class="active:bg-[#180B1A]/50 w-full  px-3 py-2">Add Products</a>
+          <a href="#" class="active:bg-[#180B1A]/50 w-full  px-3 py-2">Orders</a>
+          <a href="../logout.php" class="active:bg-[#180B1A]/50 w-full  px-3 py-2">Logout</a>
         </div>
       </nav>
 
