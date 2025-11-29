@@ -76,7 +76,7 @@ include("../config.php");
             </nav>
             <!-- form -->
             <div class="flex justify-center">
-                <form method="POST" class="flex flex-col block w-[70vw] mt-5   ">
+                <form method="post" class="flex flex-col block w-[70vw] mt-5   ">
                     <label for="" class="text-[20px] font-semibold">Product Name</label>
                     <input type="text" placeholder="Enter product name" name="product_name"
                         class="border px-2 py-1 m-2">
@@ -94,7 +94,7 @@ include("../config.php");
                     <textarea placeholder="Enter product description" name="description"
                         class="border px-2 py-1 m-2"></textarea>
                     <!-- <label for="">Product Image</label> -->
-                    <input type="file" id="fileInput" accept="image/*" name="img"
+                    <input type="file" id="fileInput" enctype="multipart/form-data" name="img"
                         class="border px-2 py-1 m-2    md:w-56 rounded cursor-pointer">
 
                     <button type="submit" name="add_data"
@@ -103,24 +103,48 @@ include("../config.php");
 
                 </form>
 
-                <?php
-                if (isset($_POST["add_data"])) {
 
-                    $productName = $POST["product_name"];
-                    $productPrice = $POST["product_price"];
-                    $category = $_POST['category'];
-                    $description = $POST['description'];
-                    // image uploads
-                    if(isset($_FILES['img'])) {
+            </div>
+            <?php
+            if (isset($_POST["add_data"])) {
+
+                $productName = $_POST["product_name"];
+                $productPrice = $_POST["product_price"];
+                $category = $_POST['category'];
+                $description = $_POST['description'];
+                $folder='./uploads';
+                $imageName = $_FILES['img']['name'];
+                $file = $_FILES ['img']['tmp_name'];
+                $path= $file.$imageName;
+                $target_file =$folder.basename($imageName);
+                // image uploads
+                // if (isset($_FILES['img'])) {
 
 
-                    }
+                    // $path = $_FILES['img']['name'];
+                    // $imageName = uniqid() . "." . $path;
+                    // $upload_Path = "./uploads/" . $imageName;
 
+                    // move_uploaded_file($_FILES["img"]["tmp_name"], $upload_Path ) || die("Failed to upload");
+
+
+                // } else {
+                //     echo "NO file found";
+                // }
+
+                $query = "INSERT INTO add_products(product_name,price,category,description,images)VALUES('$productName','$productPrice','$category',' $description','$imageName')";
+                $data = mysqli_query($conn, $query);
+
+                if ($data) {
+                    echo "Product add sucessfully..";
+                } else {
+                    echo "Error";
                 }
 
+            }
 
-                ?>
-            </div>
+
+            ?>
             <!-- View Add Products details -->
         </main>
     </div>
